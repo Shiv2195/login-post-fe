@@ -53,7 +53,7 @@ export class CreatePostComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          this.alertService.success('Post Created Successfully', true);
+          this.alertService.success('Post Created Successfully,Check in All Posts', true);
           this.loading = false;
           
         },
