@@ -9,7 +9,7 @@ app.use(express.static(__dirname + '/dist/jalan-task-fe'));
 
 app.get('/*', function(req,res) {
 
-    res.sendFile(path.join(__dirname+'/dist/jalan-task-fe/index.html'));
+    res.sendFile(path.join(__dirname+'/dist/jalan-task-fe/src/index.html'));
 });
 
 // Start the app by listening on the default Heroku port
