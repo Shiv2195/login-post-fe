@@ -55,7 +55,8 @@ export class SignupComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    this.alertService.success('Registration successful,Go To Login', true);
+                    this.loading = false;
+                    this.alertService.success('Registration successful!!!You can Login Now', true);
 
                 },
                 error => {
