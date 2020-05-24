@@ -1,5 +1,4 @@
-<!-- nav -->
-<nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
+<nav class="navbar navbar-expand bg-dark" *ngIf="currentUser">
   <div class="navbar-nav">
     <button mat-raised-button class="nav-item nav-link" routerLink="/home">
       <mat-icon [ngStyle]="{ color: 'white' }">home</mat-icon>
@@ -11,7 +10,7 @@
     </button>
     <button mat-raised-button class="nav-item nav-link" routerLink="/archived">
       <mat-icon [ngStyle]="{ color: 'white' }">archive</mat-icon>
-    Archived Task
+      Archived Task
     </button>
 
     <button
@@ -23,15 +22,22 @@
       <mat-icon [ngStyle]="{ color: 'white' }">settings_power</mat-icon>
       Logout
     </button>
+
+    <div [ngStyle]="{ position: 'absolute', right: '0' }">
+      <!--      <form>-->
+      <label>
+        <input [(ngModel)]="searchText"  type="text" placeholder="Search.."/>
+      </label>
+      <button mat-raised-button (click)="submitSearch()">
+        <mat-icon>search</mat-icon>
+      </button>
+      <!--      </form>-->
+    </div>
   </div>
 </nav>
 <!-- main app container -->
 <div class="jumbotron">
   <div class="container">
-    <div class="row">
-      <div class="col-sm-6 offset-sm-3">
-        <router-outlet></router-outlet>
-      </div>
-    </div>
+    <router-outlet></router-outlet>
   </div>
 </div>

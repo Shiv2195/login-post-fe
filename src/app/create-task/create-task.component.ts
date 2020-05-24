@@ -4,7 +4,8 @@ import {first} from 'rxjs/operators';
 import {UserSignIn} from '../models/usersignin.model';
 import {AlertService} from '../services/alert.service';
 import {AuthenticationService} from '../services/authentication.servcie';
-import {CreateTaskService} from '../services/create-task.service';
+
+import {TaskService} from "../services/task.service";
 
 @Component({
   selector: 'app-create-task',
@@ -19,7 +20,7 @@ export class CreateTaskComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authenticationService: AuthenticationService,
-    private createTaskService: CreateTaskService,
+    private taskService: TaskService,
     private alertService: AlertService,
   ) {
     this.user = this.authenticationService.currentUserValue;
@@ -50,17 +51,16 @@ export class CreateTaskComponent implements OnInit {
     }
 
     this.loading = true;
-    this.createTaskService
+    this.taskService
       .createTask(
         this.createTaskForm.value,
         this.user.user._id,
-        this.user.token,
       )
       .pipe(first())
       .subscribe(
         (data) => {
           this.alertService.success(
-            'Task Created Successfully,Check in All Tasks',
+            'Task Created Successfully.',
             true,
           );
           this.loading = false;

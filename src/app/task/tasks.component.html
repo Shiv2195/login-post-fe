@@ -1,10 +1,14 @@
 <h3>List of All Tasks</h3>
-<div *ngFor="let task of taskList; let i = index">
-  <div class="card">
+<div class="row">
+  <div
+    *ngFor="let task of taskList; let i = index"
+    class="card mt-3 ml-3 col-sm-12 col-md-4 col-lg-4 col-xl-4"
+  >
     <div class="card-body">
       <div class="card-title">
         <label>Title : </label>
-        {{ task.title }}</div>
+        {{ task.title }}
+      </div>
       <div class="card-text">
         <div>
           <label>Task Description : </label>
@@ -13,7 +17,7 @@
 
         <div>
           <label>Due Date : </label>
-          {{ task.dueDate | date : 'medium' }}
+          {{ task.dueDate | date: 'medium' }}
         </div>
 
         <div>
@@ -25,12 +29,17 @@
           {{ task.status }}
         </div>
       </div>
-      <!--            <button class="btn btn-primary" (click)="onUpvote(i)">-->
-      <!--                <mat-icon>thumb_up</mat-icon>-->
-      <!--            </button>-->
-      <!--            {{post.likes.length}} <span [ngStyle]="{'right': '5px',-->
-      <!--                    'bottom': '0',-->
-      <!--                    'position': 'absolute'}">{{post.created | date:'medium'}}</span>-->
+      <div class="actions">
+        <button class="btn btn-primary" (click)="onEditTask(task)">
+          <mat-icon>edit</mat-icon>
+        </button> &nbsp;
+        <button class="btn btn-primary" (click)="onDeleteTask(task)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
 </div>
+<button routerLink="/create" class="mat-fab bottom-right" mat-fab>
+  <mat-icon class="icon">add</mat-icon>
+</button>

@@ -4,7 +4,7 @@ import {NgModule} from '@angular/core';
 import {appRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {LoginComponent} from './login/login.component';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {ErrorInterceptor} from './helpers/error.interceptor';
 import {JwtInterceptor} from './helpers/jwt.interceptor';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -16,9 +16,11 @@ import {MatIconModule} from '@angular/material/icon';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {DatePipe} from '@angular/common';
-import {MatButtonModule} from "@angular/material/button";
+import {MatButtonModule} from '@angular/material/button';
 import {ArchiveTaskComponent} from './archieve-task/archive-task.component';
-
+import {MatInputModule} from "@angular/material/input";
+import {SearchResultComponent} from './search-result/search-result.component';
+import {EditTaskComponent} from './edit-task/edit-task.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import {ArchiveTaskComponent} from './archieve-task/archive-task.component';
     CreateTaskComponent,
     AlertComponent,
     TasksComponent,
-    ArchiveTaskComponent
+    ArchiveTaskComponent,
+    SearchResultComponent,
+    EditTaskComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,14 +42,15 @@ import {ArchiveTaskComponent} from './archieve-task/archive-task.component';
     MatIconModule,
     MatCardModule,
     BrowserAnimationsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatInputModule,
+    FormsModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-    DatePipe
-
+    DatePipe,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

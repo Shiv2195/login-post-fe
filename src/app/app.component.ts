@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
-import { AuthenticationService } from './services/authentication.servcie';
-import { UserSignIn } from './models/usersignin.model';
+import {Component} from '@angular/core';
+import {Router} from '@angular/router';
+import {AuthenticationService} from './services/authentication.servcie';
+import {UserSignIn} from './models/usersignin.model';
 
 @Component({
     selector: 'app-root',
@@ -9,6 +9,9 @@ import { UserSignIn } from './models/usersignin.model';
 })
 export class AppComponent {
     currentUser: UserSignIn;
+    searchText = '';
+
+
 
     constructor(
         private router: Router,
@@ -21,4 +24,9 @@ export class AppComponent {
         this.authenticationService.logout();
         this.router.navigate(['/signin']);
     }
+
+    submitSearch(){
+
+    }
+
 }

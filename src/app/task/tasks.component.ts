@@ -4,6 +4,7 @@ import {Task} from '../models/task.model';
 import {AuthenticationService} from '../services/authentication.servcie';
 import {UserSignIn} from '../models/usersignin.model';
 import {DatePipe} from '@angular/common';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-tasks',
@@ -20,7 +21,7 @@ export class TasksComponent implements OnInit {
   constructor(
     private taskService: TaskService,
     private authenticationService: AuthenticationService,
-
+    private router : Router
   ) {
     this.user = this.authenticationService.currentUserValue;
 
@@ -31,6 +32,9 @@ export class TasksComponent implements OnInit {
       this.taskList = taskList;
       console.log(this.taskList);
     });
+  }
 
+  onEditTask(task:Task): void{
+  this.router.navigateByUrl('/edit', { state: task })
   }
 }
