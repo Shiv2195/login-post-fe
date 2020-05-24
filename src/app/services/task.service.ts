@@ -4,28 +4,21 @@ import {environment} from 'src/environments/environment';
 import {Task} from '../models/task.model';
 import {API} from '../app.constants';
 import {Observable} from 'rxjs';
+import {UserSignIn} from '../models/usersignin.model';
 
 
 @Injectable({ providedIn: 'root' })
-
 export class TaskService {
-    constructor(private http: HttpClient) { }
+  user: UserSignIn;
+  constructor(private http: HttpClient) {}
 
-    getTasks(): Observable<[]> {
+  getTasks(userId: string): Observable<Task[]> {
+    return this.http.get<Task[]>(environment.API_URL + API.SHOW_TASK + userId);
+  }
 
-        // @ts-ignore
-        return this.http.get<Task[]>(environment.API_URL + API.SHOW_TASK);
-    }
-
-    // likeTask(userId:string, token:string, TaskId:string): Observable<Task> {
-    //     const httpOptions = {
-    //         headers: new HttpHeaders({
-    //             'Content-Type': 'application/json',
-    //             'Authorization': `Bearer ${token}`
-    //         })
-    //
-    //     };
-    //     return this.http.put<Task>(environment.API_URL + API.Task_LIKE,{userId,TaskId},httpOptions )
-    // }
-
+  getArchiveTasks(userId: string): Observable<Task[]> {
+    return this.http.get<Task[]>(
+      environment.API_URL + API.ARCHIVE_TASK + userId,
+    );
+  }
 }

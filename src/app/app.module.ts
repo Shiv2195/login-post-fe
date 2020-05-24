@@ -17,6 +17,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatCardModule} from '@angular/material/card';
 import {DatePipe} from '@angular/common';
 import {MatButtonModule} from "@angular/material/button";
+import {ArchiveTaskComponent} from './archieve-task/archive-task.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {MatButtonModule} from "@angular/material/button";
     SignupComponent,
     CreateTaskComponent,
     AlertComponent,
-    TasksComponent
+    TasksComponent,
+    ArchiveTaskComponent
   ],
   imports: [
     BrowserModule,
