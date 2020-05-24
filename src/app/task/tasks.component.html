@@ -1,0 +1,36 @@
+<h3>List of All Tasks</h3>
+<div *ngFor="let task of taskList; let i = index">
+  <div class="card">
+    <div class="card-body">
+      <div class="card-title">
+        <label>Title : </label>
+        {{ task.title }}</div>
+      <div class="card-text">
+        <div>
+          <label>Task Description : </label>
+          {{ task.text }}
+        </div>
+
+        <div>
+          <label>Due Date : </label>
+          {{ task.dueDate | date : 'medium' }}
+        </div>
+
+        <div>
+          <label>Label : </label>
+          {{ task.label }}
+        </div>
+        <div>
+          <label>Status : </label>
+          {{ task.status }}
+        </div>
+      </div>
+      <!--            <button class="btn btn-primary" (click)="onUpvote(i)">-->
+      <!--                <mat-icon>thumb_up</mat-icon>-->
+      <!--            </button>-->
+      <!--            {{post.likes.length}} <span [ngStyle]="{'right': '5px',-->
+      <!--                    'bottom': '0',-->
+      <!--                    'position': 'absolute'}">{{post.created | date:'medium'}}</span>-->
+    </div>
+  </div>
+</div>

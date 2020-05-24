@@ -1,19 +1,32 @@
 <!-- nav -->
 <nav class="navbar navbar-expand navbar-dark bg-dark" *ngIf="currentUser">
   <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/home">Home</a>
-      <a class="nav-item nav-link" routerLink="/create">Add Post</a>
-      <a class="nav-item nav-link" (click)="logout()" [ngStyle]="{'cursor':'pointer'}">Logout</a>
+    <button mat-raised-button class="nav-item nav-link" routerLink="/home">
+      <mat-icon [ngStyle]="{ color: 'white' }">home</mat-icon>
+      Home
+    </button>
+    <button mat-raised-button class="nav-item nav-link" routerLink="/create">
+      <mat-icon [ngStyle]="{ color: 'white' }">create</mat-icon>
+      Create Task
+    </button>
+    <button
+      mat-raised-button
+      class="nav-item nav-link"
+      (click)="logout()"
+      [ngStyle]="{ cursor: 'pointer' }"
+    >
+      <mat-icon [ngStyle]="{ color: 'white' }">settings_power</mat-icon>
+      Logout
+    </button>
   </div>
 </nav>
 <!-- main app container -->
 <div class="jumbotron">
   <div class="container">
-      <div class="row">
-          <div class="col-sm-6 offset-sm-3">
-              <router-outlet></router-outlet>
-          </div>
+    <div class="row">
+      <div class="col-sm-6 offset-sm-3">
+        <router-outlet></router-outlet>
       </div>
+    </div>
   </div>
 </div>
-
