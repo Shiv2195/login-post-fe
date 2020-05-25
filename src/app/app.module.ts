@@ -18,9 +18,11 @@ import {MatCardModule} from '@angular/material/card';
 import {DatePipe} from '@angular/common';
 import {MatButtonModule} from '@angular/material/button';
 import {ArchiveTaskComponent} from './archieve-task/archive-task.component';
-import {MatInputModule} from "@angular/material/input";
+import {MatInputModule} from '@angular/material/input';
 import {SearchResultComponent} from './search-result/search-result.component';
 import {EditTaskComponent} from './edit-task/edit-task.component';
+import {DeleteDialogComponent} from './delete-dialog/delete-dialog.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import {EditTaskComponent} from './edit-task/edit-task.component';
     ArchiveTaskComponent,
     SearchResultComponent,
     EditTaskComponent,
+    DeleteDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -45,6 +48,7 @@ import {EditTaskComponent} from './edit-task/edit-task.component';
     MatButtonModule,
     MatInputModule,
     FormsModule,
+    MatDialogModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
@@ -52,5 +56,6 @@ import {EditTaskComponent} from './edit-task/edit-task.component';
     DatePipe,
   ],
   bootstrap: [AppComponent],
+  entryComponents: [DeleteDialogComponent],
 })
 export class AppModule {}

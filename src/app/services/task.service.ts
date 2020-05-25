@@ -28,4 +28,7 @@ export class TaskService {
       environment.API_URL + API.ARCHIVE_TASK + userId,
     );
   }
+  deleteTask(taskId: string) {
+    return this.http.delete(environment.API_URL + API.DELETE_TASK + taskId);
+  }
 }
