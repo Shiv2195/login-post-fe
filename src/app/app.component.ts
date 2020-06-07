@@ -4,29 +4,30 @@ import {AuthenticationService} from './services/authentication.servcie';
 import {UserSignIn} from './models/usersignin.model';
 
 @Component({
-    selector: 'app-root',
-    templateUrl: 'app.component.html'
+  selector: 'app-root',
+  templateUrl: 'app.component.html',
 })
 export class AppComponent {
-    currentUser: UserSignIn;
-    searchText = '';
+  currentUser: UserSignIn;
+  searchText = '';
 
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService,
+  ) {
+    this.authenticationService.currentUser.subscribe(
+      (x) => (this.currentUser = x),
+    );
+  }
 
+  logout() {
+    this.authenticationService.logout();
+    this.router.navigate(['/signin']);
+  }
 
-    constructor(
-        private router: Router,
-        private authenticationService: AuthenticationService
-    ) {
-        this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
-    }
-
-    logout() {
-        this.authenticationService.logout();
-        this.router.navigate(['/signin']);
-    }
-
-    submitSearch(){
-
-    }
-
+  submitSearch() {
+    if (this.searchText.trim().length > 0)
+      this.router.navigate(['/search', this.searchText]);
+    this.searchText = '';
+  }
 }

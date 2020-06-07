@@ -6,4 +6,5 @@ export const API = {
   DELETE_TASK: '/api/task/delete/',
   SHOW_TASK: '/api/tasks/',
   ARCHIVE_TASK: '/api/archive/',
+  SEARCH_TASK : '/api/task/search/'
 };

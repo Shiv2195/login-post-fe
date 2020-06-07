@@ -31,4 +31,9 @@ export class TaskService {
   deleteTask(taskId: string) {
     return this.http.delete(environment.API_URL + API.DELETE_TASK + taskId);
   }
+  searchTask(title: string, userId: string) {
+    return this.http.get<Task[]>(
+      environment.API_URL + API.SEARCH_TASK + userId + '/' + title,
+    );
+  }
 }

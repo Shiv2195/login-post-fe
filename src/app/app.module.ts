@@ -23,6 +23,7 @@ import {SearchResultComponent} from './search-result/search-result.component';
 import {EditTaskComponent} from './edit-task/edit-task.component';
 import {DeleteDialogComponent} from './delete-dialog/delete-dialog.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {AuthGuard} from "./helpers/auth.guard";
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
     DatePipe,
+    AuthGuard
   ],
   bootstrap: [AppComponent],
   entryComponents: [DeleteDialogComponent],
