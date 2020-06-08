@@ -1,4 +1,6 @@
-# Login & Post Frontend in Angular
+App Live Demo :
+
+http://stackhouse-fe.herokuapp.com/
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.12.
 
